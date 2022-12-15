@@ -39,9 +39,22 @@ inquirer
                 validate: (value) => { if (value) { return true } else { return 'please type in a response to continue' } }
             },
             {
-                type: 'input',
-                message: "Which license did you use for this program? If not applicable, please type in N/A.",
+                type: 'list',
+                message: "Which license did you use for this program?",
+                choices: ['None', 'MIT', 'GPL v3.0', 'Apache 2.0'],
                 name: 'license',
+                validate: (value) => { if (value) { return true } else { return 'please choose a response to continue' } }
+            },
+            {
+                type: 'input',
+                message: "Please type in your GitHub username",
+                name: 'username',
+                validate: (value) => { if (value) { return true } else { return 'please type in a response to continue' } }
+            },
+            {
+                type: 'input',
+                message: "Please type in your email",
+                name: 'email',
                 validate: (value) => { if (value) { return true } else { return 'please type in a response to continue' } }
             },
         ]
@@ -52,33 +65,40 @@ inquirer
         instructions,
         credits,
         license,
+        username,
+        email,
     }) => {
         // Generates a template based on user input
         const template = `# ${title}
 
-    ## Description
-    ${description}
+*[Description](#description)
+*[Installation](#installation)
+*[Usage](#usage)
+*[Credits](#credits)
+*[License](#license)
 
-    ##Installation
-    ${installation}
-
-    ## Instructions
-    ${instructions}
-
-    ## Credits
-    ${credits}
-    
-    ## License
-    ${license} 
-    `
+# Description
+${description}
+## Installation
+${installation}
+## Instructions
+${instructions}
+## Credits
+${credits}
+## License
+${license}
+## Contact
+For further information and/or questions, you can contact me:
+Github: ${username}
+Email : ${email}`;
         // function used to create the README file with fs
-        createNewFile(title, template);
+        createNewFile(template);
     }
     );
 
 
 // the aforementioned function, now fleshed out
-function createNewFile(fileName, data) {
+function createNewFile(data) {
     fs.writeFile(`./README.md`, data, (err) => {
         if (err) {
             console.log(err)
