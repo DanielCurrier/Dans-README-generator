@@ -99,7 +99,7 @@ Email : ${email}`;
 
 // the aforementioned function, now fleshed out
 function createNewFile(data) {
-    fs.writeFile(`./README.md`, data, (err) => {
+    fs.writeFile(`./doc/README.md`, data, (err) => {
         if (err) {
             console.log(err)
         }
