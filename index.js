@@ -70,12 +70,13 @@ inquirer
     }) => {
         // Generates a template based on user input
         const template = `# ${title}
-
+# Table of Contents
 *[Description](#description)
 *[Installation](#installation)
 *[Usage](#usage)
 *[Credits](#credits)
 *[License](#license)
+*[Contact] (#contact)
 
 # Description
 ${description}
@@ -86,12 +87,12 @@ ${instructions}
 ## Credits
 ${credits}
 ## License
-${license}
+This program is covered by the ${license} license. Please refer to the LICENSE.md file for more information.
 ## Contact
 For further information and/or questions, you can contact me:
 Github: ${username}
 Email : ${email}`;
-        // function used to create the README file with fs
+        // function called asynhronously to create the README file with fs
         createNewFile(template);
     }
     );
@@ -99,6 +100,7 @@ Email : ${email}`;
 
 // the aforementioned function, now fleshed out
 function createNewFile(data) {
+    // file will be written and generated in the doc folder of this application. pull the README out to generate a new one!
     fs.writeFile(`./doc/README.md`, data, (err) => {
         if (err) {
             console.log(err)
