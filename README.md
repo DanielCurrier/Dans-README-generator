@@ -15,7 +15,11 @@ Please download this repository and place it in whatever folder you deem fit.
 ## Instructions
 To use this program, open up your command line interface of choice and change your directory location to where this application resides in your system. Once there, type in 'node index.js' to run the program. A series of prompts will appear in your CLI, answer them to the best of your ability. 
 Once you have written your contents, a fresh README file will appear in the docs folder of this application. If you wish to make multiple READMEs, simply pull the latest file from the doc folder and into  whichever repository you like. If you do not do this, the already existing file will be overwritten! A video is provided below that shows how this works in action👇.
-https://github.com/LordDanklin/Dans-README-generator/blob/main/demo/generator-demo.mp4
+
+
+https://user-images.githubusercontent.com/112973907/208253524-628ef5d1-ad9a-4426-9527-7167002abb2e.mp4
+
+
 
 ## Credits
 N/A
